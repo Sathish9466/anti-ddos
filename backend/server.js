@@ -5,9 +5,13 @@ const cors = require("cors")
 
 const app = express();
 const PORT = 3000;
+const corsOptions = {
+    origin: 'https://anti-ddos-frontend.onrender.com', // Allow only your frontend
+    methods: ['GET', 'POST', 'OPTIONS'], // Allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+};
 
-// Middleware setup
-app.use(cors())
+app.use(cors(corsOptions));
 app.use(rateLimiter);  // Apply rate limiter globally
 app.use(ipBlocker);    // Apply IP blocking middleware globally
 
