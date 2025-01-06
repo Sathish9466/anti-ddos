@@ -7,7 +7,7 @@ const App =() =>{
     const [responseMessage, setResponseMessage] = useState('');
     console.log(BackendURL)
     const handleButtonClick = () => {
-        fetch('http://localhost:3000/')
+        fetch(BackendURL)
             .then(response => {
                 if (response.status === 429) {
                     setResponseMessage('Rate limit exceeded. Please try again later.');
